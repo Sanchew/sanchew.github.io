@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Charles,Shadowsocks," />
 
 
 
@@ -94,13 +94,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sanchew">
-<meta property="og:url" content="https://sanchew.github.io/index.html">
+<meta name="description" content="Charles是一个抓包软件，想必大家使用的同时也非常头疼，常会发生Charles开启的情况下https无法使用或是npm、brew之类的工具无法下载。 Shadowsocks不用说了大家懂的，但可惜的是这个软件和Charles并不能共同使用，因为两者同样是使用代理的方式来进行网络请求或是抓取数据包的，但代理服务器只能有一台。 了解Shadowsocks的人就知道Shadowsocks有自动代理模">
+<meta name="keywords" content="Charles,Shadowsocks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Charles &amp; Shadowsocks 美完并存方案">
+<meta property="og:url" content="https://sanchew.github.io/2017/08/15/charles-shadowsocks/index.html">
 <meta property="og:site_name" content="Sanchew">
+<meta property="og:description" content="Charles是一个抓包软件，想必大家使用的同时也非常头疼，常会发生Charles开启的情况下https无法使用或是npm、brew之类的工具无法下载。 Shadowsocks不用说了大家懂的，但可惜的是这个软件和Charles并不能共同使用，因为两者同样是使用代理的方式来进行网络请求或是抓取数据包的，但代理服务器只能有一台。 了解Shadowsocks的人就知道Shadowsocks有自动代理模">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://sanchew.github.io/2017/08/15/charles-shadowsocks/7395108-9bae7a68aad0db57.png">
+<meta property="og:updated_time" content="2017-08-15T08:14:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sanchew">
+<meta name="twitter:title" content="Charles &amp; Shadowsocks 美完并存方案">
+<meta name="twitter:description" content="Charles是一个抓包软件，想必大家使用的同时也非常头疼，常会发生Charles开启的情况下https无法使用或是npm、brew之类的工具无法下载。 Shadowsocks不用说了大家懂的，但可惜的是这个软件和Charles并不能共同使用，因为两者同样是使用代理的方式来进行网络请求或是抓取数据包的，但代理服务器只能有一台。 了解Shadowsocks的人就知道Shadowsocks有自动代理模">
+<meta name="twitter:image" content="https://sanchew.github.io/2017/08/15/charles-shadowsocks/7395108-9bae7a68aad0db57.png">
 
 
 
@@ -129,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://sanchew.github.io/"/>
+  <link rel="canonical" href="https://sanchew.github.io/2017/08/15/charles-shadowsocks/"/>
 
 
 
 
 
-  <title>Sanchew</title>
+  <title>Charles & Shadowsocks 美完并存方案 | Sanchew</title>
   
 
 
@@ -154,9 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -229,9 +234,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -261,9 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/15/charles-shadowsocks/" itemprop="url">Charles & Shadowsocks 美完并存方案</a></h1>
+          <h1 class="post-title" itemprop="name headline">Charles & Shadowsocks 美完并存方案</h1>
         
 
         <div class="post-meta">
@@ -313,9 +316,7 @@
       
 
       
-        
-          
-            <p>Charles是一个抓包软件，想必大家使用的同时也非常头疼，常会发生Charles开启的情况下https无法使用或是npm、brew之类的工具无法下载。</p>
+        <p>Charles是一个抓包软件，想必大家使用的同时也非常头疼，常会发生Charles开启的情况下https无法使用或是npm、brew之类的工具无法下载。</p>
 <p>Shadowsocks不用说了大家懂的，但可惜的是这个软件和Charles并不能共同使用，因为两者同样是使用代理的方式来进行网络请求或是抓取数据包的，但代理服务器只能有一台。</p>
 <p>了解Shadowsocks的人就知道Shadowsocks有自动代理模式，该模式中只有部分请求会走ss进行代理而国内网站则不进行代理，而自动代理是使用的PAC文件,PAC文件使用的是js的语法非常简单,如果你了解PAC你就会发现他有多强大。</p>
 <p>可惜的是最新版本的SS并不支持修改PAC逻辑，所以我fork了一份自己修改了一下地址在我的<a href="https://github.com/Sanchew" target="_blank" rel="external">github</a>你可以clone下来并查看如果你觉得麻烦可以直接在<a href="https://github.com/Sanchew/softs/raw/master/ShadowsocksX-NG.zip" target="_blank" rel="external">下载</a>.</p>
@@ -330,8 +331,6 @@
 <hr>
 <h3 id="题外话关于PAC"><a href="#题外话关于PAC" class="headerlink" title="题外话关于PAC"></a>题外话关于PAC</h3><p>这里只说MAC情况linux&amp;windows类似，PAC是系统本身的自带功能与SS无关细心的朋友就会知道当你开启SS的情况下 <code>打开网络偏好设置-&gt;高级-&gt;代理</code> 你就会发现系统已经选中了自动代理且后面有一个地址 <code>http://127.0.0.1:1089/proxy.pac</code> 端口号可能有所不同，你可以把这127.0.0.1换成你电脑IP然后就可以在手机上设置自动代理。至于效果你应该已经明白了。</p>
 
-          
-        
       
     </div>
     
@@ -346,14 +345,22 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Charles/" rel="tag"># Charles</a>
+          
+            <a href="/tags/Shadowsocks/" rel="tag"># Shadowsocks</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -363,10 +370,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -374,6 +382,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -394,8 +406,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -448,6 +469,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题外话关于PAC"><span class="nav-number">1.</span> <span class="nav-text">题外话关于PAC</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -571,10 +608,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
