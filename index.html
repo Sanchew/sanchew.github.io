@@ -314,23 +314,14 @@
 
       
         
-          
-            <p>Charles是一个抓包软件，想必大家使用的同时也非常头疼，常会发生Charles开启的情况下https无法使用或是npm、brew之类的工具无法下载。</p>
-<p>Shadowsocks不用说了大家懂的，但可惜的是这个软件和Charles并不能共同使用，因为两者同样是使用代理的方式来进行网络请求或是抓取数据包的，但代理服务器只能有一台。</p>
-<p>了解Shadowsocks的人就知道Shadowsocks有自动代理模式，该模式中只有部分请求会走ss进行代理而国内网站则不进行代理，而自动代理是使用的PAC文件,PAC文件使用的是js的语法非常简单,如果你了解PAC你就会发现他有多强大。</p>
-<p>可惜的是最新版本的SS并不支持修改PAC逻辑，所以我fork了一份自己修改了一下地址在我的<a href="https://github.com/Sanchew" target="_blank" rel="external">github</a>你可以clone下来并查看如果你觉得麻烦可以直接在<a href="https://github.com/Sanchew/softs/raw/master/ShadowsocksX-NG.zip" target="_blank" rel="external">下载</a>.</p>
-<p>我在菜单里添加了编辑PAC用户脚本来实现对PAC的修改。</p>
-<p><img src="/2017/08/15/charles-shadowsocks/7395108-9bae7a68aad0db57.png" alt="image.png"></p>
-<p>点开以后输入你想输入的逻辑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if (dnsDomainIs(host, &apos;xxx.com&apos;)||shExpMatch(url, &quot;xxx.com/*&quot;)) &#123;</div><div class="line">return &quot;PROXY 127.0.0.1:8888;&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>判断你想要用charles抓取的域名，dnsDomainIs和shExpMatch是PAC两个内置的函数相信你已经知道如何使用。上面这个是关于Charles和SS并存的解决。</p>
-<p>接下来你就可以解决我开头说的问题很简单关掉Charlse的全局代理。就是Mozilla FireFox Proxy上面的那个选项。这样就只有你在PAC中设置的域名会转到Charles的代理中如果你没有开Charles会走SS或直连这里要看你SS是如何配置的。这时候Charles只会抓取你设定的请求，所以你再使用npm之类的的便不会受到影响。</p>
-<hr>
-<p>当然你也可以直接改SS的gfwlist.js文件在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function FindProxyForURL(url, host) &#123;</div><div class="line">var uproxy = UserCustomProxy(url, host);</div><div class="line">if (uproxy) return uproxy + &quot; &quot; + proxy;</div><div class="line">if (defaultMatcher.matchesAny(url, host) instanceof BlockingFilter) &#123;</div><div class="line">return proxy;</div><div class="line">&#125;</div><div class="line">return direct;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>里面添加你想要的逻辑，只是每次更新PAC你的修改需要重做。<br>当然这个文件的目录在当前的用户目录下有一个.Shadowsocks[-NG]的文件夹[]里面的内容是可选，在旧版本中没有-NG。</p>
-<hr>
-<h3 id="题外话关于PAC"><a href="#题外话关于PAC" class="headerlink" title="题外话关于PAC"></a>题外话关于PAC</h3><p>这里只说MAC情况linux&amp;windows类似，PAC是系统本身的自带功能与SS无关细心的朋友就会知道当你开启SS的情况下 <code>打开网络偏好设置-&gt;高级-&gt;代理</code> 你就会发现系统已经选中了自动代理且后面有一个地址 <code>http://127.0.0.1:1089/proxy.pac</code> 端口号可能有所不同，你可以把这127.0.0.1换成你电脑IP然后就可以在手机上设置自动代理。至于效果你应该已经明白了。</p>
-
-          
+          Charles是一个抓包工具，Shadowsocks是一个你懂的工具，但是可惜的是当你开启Shadowsocks的情况下你会发现Charles不可用，本文就来帮你解决这个问题。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/15/charles-shadowsocks/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
