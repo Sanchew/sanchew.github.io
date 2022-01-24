@@ -115,7 +115,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '船长'
+      author: '罗夏'
     },
     algolia: {
       applicationID: '',
@@ -230,6 +230,149 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sanchew.github.io/2022/01/24/lottery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sanchew">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sanchew">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/01/24/lottery/" itemprop="url">魔法胖猫社抽奖</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-01-24T12:23:14+08:00">
+                2022-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><div><br>    <div>请按半角逗号或换行分隔输入</div><br>    <textarea class="members" style="width: 600px;"></textarea><br>    <div><br>        <button id="opt" style="margin-left:10px;">有请下一位受害者</button><br>    </div><br>    <span>中奖名单</span><br>    <ul class="answer"></ul><br></div></p>
+<script src="/js/src/jquery.js"></script>
+<script>
+    var data = ''
+    var candidate = []
+    $('#opt').click(() => {
+        var ms = $('.members').val() 
+        if (data.length === 0 || data !== ms) {
+            data = ms
+            if (ms.length === 0) {
+                alert('请输入社员名单')
+                return
+            } 
+            if (ms.includes(',')) {
+                candidate = ms.split(',')
+            } else {
+                candidate = ms.split('\n')
+            }
+            $('.answer').empty()
+        }
+        if (candidate.length === 0) return
+        var luckyDog = candidate.splice(parseInt(Math.random()*candidate.length), 1)
+        $('.answer').append($(`<li style="color:red;">${luckyDog[0]}</li>`))
+    })
+</script>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -525,7 +668,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -538,7 +681,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
