@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="请按半角逗号或换行分隔输入                有请下一位受害者        中奖名单           var data = &apos;&apos;     var candidate = []     $(&apos;#opt&apos;).click(() =&amp;gt; {         var ms = $(&apos;.members&apos;).val()          if (data.length === 0 ||">
+<meta name="description" content="5人10人                        $(&apos;.opt&apos;).click((e) =&amp;gt; {         $(&apos;.panel&apos;).empty()         var size = parseInt($(e.target).html())         var data = []         for (var i = 1; i {     //">
 <meta name="keywords" content="魔法胖猫社,抽奖">
 <meta property="og:type" content="article">
 <meta property="og:title" content="魔法胖猫社殿堂周奖励">
 <meta property="og:url" content="https://sanchew.github.io/2022/01/24/lottery/index.html">
 <meta property="og:site_name" content="Sanchew">
-<meta property="og:description" content="请按半角逗号或换行分隔输入                有请下一位受害者        中奖名单           var data = &apos;&apos;     var candidate = []     $(&apos;#opt&apos;).click(() =&amp;gt; {         var ms = $(&apos;.members&apos;).val()          if (data.length === 0 ||">
+<meta property="og:description" content="5人10人                        $(&apos;.opt&apos;).click((e) =&amp;gt; {         $(&apos;.panel&apos;).empty()         var size = parseInt($(e.target).html())         var data = []         for (var i = 1; i {     //">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-01-25T08:13:13.563Z">
+<meta property="og:updated_time" content="2022-05-05T15:35:56.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="魔法胖猫社殿堂周奖励">
-<meta name="twitter:description" content="请按半角逗号或换行分隔输入                有请下一位受害者        中奖名单           var data = &apos;&apos;     var candidate = []     $(&apos;#opt&apos;).click(() =&amp;gt; {         var ms = $(&apos;.members&apos;).val()          if (data.length === 0 ||">
+<meta name="twitter:description" content="5人10人                        $(&apos;.opt&apos;).click((e) =&amp;gt; {         $(&apos;.panel&apos;).empty()         var size = parseInt($(e.target).html())         var data = []         for (var i = 1; i {     //">
 
 
 
@@ -314,30 +314,54 @@
       
 
       
-        <p><div><br>    <div>请按半角逗号或换行分隔输入</div><br>    <textarea class="members" style="width: 600px;"></textarea><br>    <div><br>        <button id="opt" style="margin-left:10px;">有请下一位受害者</button><br>    </div><br>    <span>中奖名单</span><br>    <ul class="answer"></ul><br></div></p>
+        <p><div><br>    <div><br>        <button class="opt" style="margin-left:10px; display: inline-block;">5人</button><button class="opt" style="margin-left:10px; display: inline-block;">10人</button><br>    </div><br>    <!-- <span>中奖名单</span> --><br>    <!-- <ul class="answer"></ul> --><br>    <div class="panel"></div><br></div></p>
 <script src="/js/src/jquery.js"></script>
+<script src="/js/src/lottery-wheel.js"></script>
 <script>
-    var data = ''
-    var candidate = []
-    $('#opt').click(() => {
-        var ms = $('.members').val() 
-        if (data.length === 0 || data !== ms) {
-            data = ms
-            if (ms.length === 0) {
-                alert('请输入社员名单')
-                return
-            } 
-            if (ms.includes(',')) {
-                candidate = ms.split(',')
-            } else {
-                candidate = ms.split('\n')
-            }
-            $('.answer').empty()
-        }
-        if (candidate.length === 0) return
-        var luckyDog = candidate.splice(parseInt(Math.random()*candidate.length), 1)
-        $('.answer').append($(`<li style="color:red;">${luckyDog[0]}</li>`))
+    $('.opt').click((e) => {
+        $('.panel').empty()
+        var size = parseInt($(e.target).html())
+        var data = []
+        for (var i = 1; i<=size; i++) data.push({text: `${i}`, chance: 1})
+        const wheel = new Wheel({
+          el: $('.panel').get(0),
+          data,
+          clockwise: false,
+          color: {
+            border: 'green',
+            prize: 'green',
+            button: 'darkorange',
+            line: 'yellow',
+            prizeFont: 'white',
+            buttonFont: 'white'
+          },
+          buttonText: '抽',
+          draw: true
+        });
+        // wheel.draw()
+        // console.log($(e).html())
     })
+    // var data = ''
+    // var candidate = []
+    // $('#opt').click(() => {
+    //     var ms = $('.members').val() 
+    //     if (data.length === 0 || data !== ms) {
+    //         data = ms
+    //         if (ms.length === 0) {
+    //             alert('请输入社员名单')
+    //             return
+    //         } 
+    //         if (ms.includes(',')) {
+    //             candidate = ms.split(',')
+    //         } else {
+    //             candidate = ms.split('\n')
+    //         }
+    //         $('.answer').empty()
+    //     }
+    //     if (candidate.length === 0) return
+    //     var luckyDog = candidate.splice(parseInt(Math.random()*candidate.length), 1)
+    //     $('.answer').append($(`<li style="color:red;">${luckyDog[0]}</li>`))
+    // })
 </script>
       
     </div>
