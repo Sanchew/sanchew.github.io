@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="5人10人                        $(&apos;.opt&apos;).click((e) =&amp;gt; {         $(&apos;.panel&apos;).empty()         var size = parseInt($(e.target).html())         var data = []         for (var i = 1; i {     //">
+<meta name="description" content="5人10人                        $(&apos;.opt&apos;).click((e) =&amp;gt; {         $(&apos;.panel&apos;).empty()         var size = parseInt($(e.target).html())         var data = []         for (var i = 1; i {">
 <meta name="keywords" content="魔法胖猫社,抽奖">
 <meta property="og:type" content="article">
 <meta property="og:title" content="魔法胖猫社 周贡抽奖">
 <meta property="og:url" content="https://sanchew.github.io/2022/01/24/lottery/index.html">
 <meta property="og:site_name" content="Sanchew">
-<meta property="og:description" content="5人10人                        $(&apos;.opt&apos;).click((e) =&amp;gt; {         $(&apos;.panel&apos;).empty()         var size = parseInt($(e.target).html())         var data = []         for (var i = 1; i {     //">
+<meta property="og:description" content="5人10人                        $(&apos;.opt&apos;).click((e) =&amp;gt; {         $(&apos;.panel&apos;).empty()         var size = parseInt($(e.target).html())         var data = []         for (var i = 1; i {">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-05-06T02:45:05.849Z">
+<meta property="og:updated_time" content="2022-05-06T05:49:39.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="魔法胖猫社 周贡抽奖">
-<meta name="twitter:description" content="5人10人                        $(&apos;.opt&apos;).click((e) =&amp;gt; {         $(&apos;.panel&apos;).empty()         var size = parseInt($(e.target).html())         var data = []         for (var i = 1; i {     //">
+<meta name="twitter:description" content="5人10人                        $(&apos;.opt&apos;).click((e) =&amp;gt; {         $(&apos;.panel&apos;).empty()         var size = parseInt($(e.target).html())         var data = []         for (var i = 1; i {">
 
 
 
@@ -336,7 +336,12 @@
             buttonFont: 'white'
           },
           buttonText: '抽',
-          draw: true
+          draw: true,
+          onSuccess: (data) => {
+              var index = parseInt(data.text) - 1
+              wheel._weight = wheel._weight.map((e,i) => i === index ? 0 : 1)
+              wheel._weightSum = wheel._weight.reduce((l,r) => l + r, 0)
+          }
         });
         // wheel.draw()
         // console.log($(e).html())

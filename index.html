@@ -337,7 +337,12 @@
             buttonFont: 'white'
           },
           buttonText: '抽',
-          draw: true
+          draw: true,
+          onSuccess: (data) => {
+              var index = parseInt(data.text) - 1
+              wheel._weight = wheel._weight.map((e,i) => i === index ? 0 : 1)
+              wheel._weightSum = wheel._weight.reduce((l,r) => l + r, 0)
+          }
         });
         // wheel.draw()
         // console.log($(e).html())
